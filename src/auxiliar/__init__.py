@@ -8,7 +8,7 @@ def are_all_the_same(a_list: list) -> bool:
     return 1 == len(Counter(a_list).values())
 
 
-def file_exists(path_to_file: str) -> str:
+def file_exists(path_to_file: str) -> bool:
     return Pathh(path_to_file).is_file()
 
 
