@@ -31,6 +31,10 @@ def head(path: str, lines_count: int = 5) -> str:
     return result
 
 
+def line_count(s: str) -> int:
+    return len(string_to_lines(s))
+
+
 def file_exists(path_to_file: str) -> bool:
     return Pathh(path_to_file).is_file()
 
@@ -49,10 +53,6 @@ def ln(s):
 
 def ls(s, lenght=65):
     return f"{ln(s)[0:lenght]}..."
-
-
-def line_count(s: str) -> int:
-    return s.count("\n")
 
 
 def loggable_bytes(b: bytes):
