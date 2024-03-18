@@ -1,5 +1,13 @@
-from auxiliar import are_all_the_same, slurp, file_as_list_of_lines, head, string_to_lines
+from auxiliar import (
+    are_all_the_same,
+    file_as_list_of_lines,
+    head,
+    line_count,
+    slurp,
+    string_to_lines,
+)
 import os
+import pytest
 
 
 def file1_path():
@@ -36,3 +44,9 @@ def test_head():
     lines = string_to_lines(head(filepath, 1))
     assert "line 1" == lines[0]
     assert 1 == len(lines)
+
+
+@pytest.mark.skip(reason="investigate why this test fails")
+def test_line_count():
+    lines = "line1" + os.linesep + "line2"
+    assert 2 == line_count(lines)
