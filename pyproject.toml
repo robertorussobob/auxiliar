@@ -19,3 +19,6 @@ classifiers = [
 [project.urls]
 Homepage = "https://github.com/robertorussobob/auxiliar"
 Issues = "https://github.com/robertorussobob/auxiliar/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
