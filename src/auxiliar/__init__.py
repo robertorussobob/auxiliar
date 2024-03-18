@@ -8,19 +8,16 @@ def are_all_the_same(a_list: list) -> bool:
     return 1 == len(Counter(a_list).values())
 
 
-def file_exists(path_to_file: str) -> bool:
-    return Pathh(path_to_file).is_file()
-
-
-def slurp(path: str) -> str:
-    result = f"{path} do not exists"
-    if file_exists(path):
-        result = Pathh(path).read_text()
-    return result
+def slurp(pathname: str) -> str:
+    return Pathh(pathname).read_text()
 
 
 def string_to_lines(string_containing_newlines: str) -> list[str]:
     return string_containing_newlines.splitlines()
+
+
+def file_as_list_of_lines(pathname: str) -> list[str]:
+    return string_to_lines(slurp(pathname))
 
 
 def head_on_str(a_string: str, lines_count: int = 5) -> str:
@@ -30,8 +27,12 @@ def head_on_str(a_string: str, lines_count: int = 5) -> str:
 def head(path: str, lines_count: int = 5) -> str:
     result = f"{path} do not exists"
     if file_exists(path):
-        result = head_on_str(slurp(path))
+        result = head_on_str(slurp(path), lines_count)
     return result
+
+
+def file_exists(path_to_file: str) -> bool:
+    return Pathh(path_to_file).is_file()
 
 
 def now():
@@ -56,14 +57,6 @@ def line_count(s: str) -> int:
 
 def loggable_bytes(b: bytes):
     return b.replace(b"\n", b" ")
-
-
-def file_as_string(pathname: str) -> str:
-    return Pathh(pathname).read_text()
-
-
-def file_as_list_of_lines(pathname: str) -> list[str]:
-    return string_to_lines(file_as_string(pathname))
 
 
 def save_file_on_local_storage(content: str, pathname: str):
