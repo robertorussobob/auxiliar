@@ -52,6 +52,7 @@ def test_line_count():
     lines = "line1" + os.linesep + "line2"
     assert 2 == line_count(lines)
 
+
 def test_list_of_elements():
     d = {
         "a": "y",
