@@ -3,6 +3,7 @@ from auxiliar import (
     file_as_list_of_lines,
     head,
     line_count,
+    list_of_elements,
     slurp,
     string_to_lines,
 )
@@ -50,3 +51,14 @@ def test_head():
 def test_line_count():
     lines = "line1" + os.linesep + "line2"
     assert 2 == line_count(lines)
+
+def test_list_of_elements():
+    d = {
+        "a": "y",
+        "b": "z",
+    }
+    expected = [
+        {"a": "y"},
+        {"b": "z"},
+    ]
+    assert expected == list_of_elements(d)
