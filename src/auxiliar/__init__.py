@@ -110,6 +110,10 @@ def line(number: int, multiline_string: str) -> str:
     return multiline_string.split("\n")[number]
 
 
+def list_of_elements(dictionary: dict) -> list[dict]:
+    return [{k: v} for k, v in dictionary.items()]
+
+
 if __name__ == '__main__':
     a = [0, 1]
     b = [0, 0]
